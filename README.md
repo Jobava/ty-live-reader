@@ -13,7 +13,7 @@ Scripts for Romanian TTS from YouTube live chat. Tested only on macOS (Apple Sil
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m nltk.downloader punkt
+python -m nltk.downloader punkt punkt_tab
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ python live_tts_pool.py --video-id <YOUTUBE_VIDEO_ID>
 - Emoji translation: `emojis.txt`.
 
 ## Troubleshooting
-- NLTK error: `python -m nltk.downloader punkt`
+- NLTK error: `python -m nltk.downloader punkt punkt_tab`
 - FFmpeg error: `brew install ffmpeg`
 - PyTorch/torchaudio: match versions in `requirements.txt`
 
