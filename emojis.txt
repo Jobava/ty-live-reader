@@ -1,0 +1,95 @@
+en=grinning_face;ro=față zâmbitoare;unicode=😀
+en=grin;ro=rânjet;unicode=😁
+en=smile;ro=zâmbet;unicode=😄
+en=laughing;ro=râs;unicode=😆
+en=face_with_tears_of_joy;ro=lacrimi de bucurie;unicode=😂
+en=cry;ro=plâns;unicode=😢
+en=sad;ro=trist;unicode=😞
+en=heart;ro=inimă;unicode=❤️
+en=heart_eyes;ro=inimă în ochi;unicode=😍
+en=fire;ro=foc;unicode=🔥
+en=star;ro=stea;unicode=⭐
+en=sparkles;ro=scânteie;unicode=✨
+en=clap;ro=aplauze;unicode=👏
+en=thumbs_up;ro=aprobare;unicode=👍
+en=thumbs_down;ro=dezaprobare;unicode=👎
+en=warning;ro=avertisment;unicode=⚠️
+en=question;ro=întrebare;unicode=❓
+en=exclamation;ro=exclamație;unicode=❗
+en=light_bulb;ro=bec;unicode=💡
+en=rocket;ro=rachetă;unicode=🚀
+en=check_mark;ro=bifat;unicode=✅
+en=x;ro=x;unicode=❌
+en=wink;ro=clipire;unicode=😉
+en=surprised;ro=surprins;unicode=😮
+en=angry;ro=furios;unicode=😠
+en=kiss;ro=sărut;unicode=😘
+en=thinking_face;ro=gânditor;unicode=🤔
+en=sleepy;ro=somnoros;unicode=😪
+en=party_popper;ro=petrecere;unicode=🥳
+en=tada;ro=tada;unicode=🎉
+en=coffee;ro=cafea;unicode=☕
+en=beer_mug;ro=bere;unicode=🍺
+en=pizza;ro=pizza;unicode=🍕
+en=shortcake;ro=prăjitură;unicode=🍰
+en=cat_face;ro=pisică;unicode=🐱
+en=dog_face;ro=câine;unicode=🐶
+en=monkey_face;ro=maimuță;unicode=🐵
+en=panda_face;ro=urs panda;unicode=🐼
+en=koala;ro=koala;unicode=🐨
+en=tiger_face;ro=tigru;unicode=🐯
+en=lion_face;ro=leu;unicode=🦁
+en=fox_face;ro=vulpe;unicode=🦊
+en=bear_face;ro=urs;unicode=🐻
+en=frog_face;ro=broască;unicode=🐸
+en=wolf_face;ro=lup;unicode=🐺
+en=sheep;ro=oaie;unicode=🐑
+en=unicorn_face;ro=unicorn;unicode=🦄
+en=dragon_face;ro=dragon;unicode=🐲
+en=whale;ro=balenă;unicode=🐋
+en=fish;ro=pește;unicode=🐟
+en=dolphin;ro=delfin;unicode=🐬
+en=crab;ro=crab;unicode=🦀
+en=butterfly;ro=fluture;unicode=🦋
+en=snail;ro=melc;unicode=🐌
+en=lady_beetle;ro=gândac;unicode=🐞
+en=spider;ro=păianjen;unicode=🕷️
+en=mushroom;ro=ciupercă;unicode=🍄
+en=bouquet;ro=buchet;unicode=💐
+en=rose;ro=trandafir;unicode=🌹
+en=tulip;ro=lalea;unicode=🌷
+en=sunflower;ro=floarea-soarelui;unicode=🌻
+en=blossom;ro=floare;unicode=🌼
+en=cherry_blossom;ro=floare de cireș;unicode=🌸
+en=leaves;ro=frunze;unicode=🍃
+en=fallen_leaf;ro=frunză căzută;unicode=🍂
+en=palm_tree;ro=palmier;unicode=🌴
+en=cactus;ro=cactus;unicode=🌵
+en=pine_tree;ro=brad;unicode=🌲
+en=christmas_tree;ro=brad de Crăciun;unicode=🎄
+en=gift;ro=cadou;unicode=🎁
+en=balloon;ro=balon;unicode=🎈
+en=confetti_ball;ro=confeti;unicode=🎊
+en=ribbon;ro=panglică;unicode=🎀
+en=medal;ro=medalie;unicode=🏅
+en=trophy;ro=trofeu;unicode=🏆
+en=crown;ro=coroană;unicode=👑
+en=gem_stone;ro=piatră prețioasă;unicode=💎
+en=money_bag;ro=sac de bani;unicode=💰
+en=laptop;ro=laptop;unicode=💻
+en=mobile_phone;ro=telefon;unicode=📱
+en=camera;ro=cameră foto;unicode=📷
+en=video_camera;ro=cameră video;unicode=📹
+en=movie_camera;ro=cameră de filmat;unicode=🎥
+en=television;ro=televizor;unicode=📺
+en=radio;ro=radio;unicode=📻
+en=microphone;ro=microfon;unicode=🎤
+en=headphone;ro=căști;unicode=🎧
+en=musical_note;ro=notă muzicală;unicode=🎵
+en=saxophone;ro=saxofon;unicode=🎷
+en=guitar;ro=chitară;unicode=🎸
+en=trumpet;ro=trompetă;unicode=🎺
+en=drum;ro=tobă;unicode=🥁
+en=musical_notes;ro=note muzicale;unicode=🎶
+en=rainbow_flag;ro=steag curcubeu;unicode=🏳️‍🌈
+en=rainbow;ro=curcubeu;unicode=🌈
