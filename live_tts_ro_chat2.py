@@ -16,6 +16,11 @@ from typing import AsyncIterator, Deque, NamedTuple, Tuple
 import pytchat                # mandatory dependency
 from ro_diacritics import restore_diacritics
 
+# Add imports for autocorrect
+from transformers import AutoTokenizer, AutoModelForMaskedLM
+import torch
+import torch.nn.functional as F
+
 # ───────── logging
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(message)s",
                     datefmt="%H:%M:%S", level=logging.INFO)
@@ -55,6 +60,56 @@ def load_emojis(fp: Path) -> tuple[dict[str, str], dict[str, str]]:
     return d, unicode_map
 
 EMO_RO, UNICODE_EMOJI_TO_NAME = load_emojis(EMO_PATH)
+
+# ───────── autocorrect with RoBERT-base
+try:
+    robert_tokenizer = AutoTokenizer.from_pretrained("readerbench/RoBERT-base")
+    robert_model = AutoModelForMaskedLM.from_pretrained("readerbench/RoBERT-base")
+except Exception as e:
+    robert_tokenizer = None
+    robert_model = None
+    logging.warning("Could not load RoBERT-base for autocorrect: %s", e)
+
+def suggest_word_robert(sentence, idx, min_confidence=0.8):
+    if not robert_tokenizer or not robert_model:
+        return None, 0.0
+    tokens = sentence.split()
+    original_word = tokens[idx]
+    tokens[idx] = robert_tokenizer.mask_token
+    masked_sentence = " ".join(tokens)
+    inputs = robert_tokenizer(masked_sentence, return_tensors="pt")
+    with torch.no_grad():
+        outputs = robert_model(**inputs)
+    mask_token_index = (inputs.input_ids == robert_tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+    logits = outputs.logits[0, mask_token_index, :]
+    probs = F.softmax(logits, dim=-1)
+    top_prob, top_idx = probs.max(dim=-1)
+    predicted_word = robert_tokenizer.decode(top_idx)
+    return predicted_word.strip(), float(top_prob)
+
+def autocorrect_robert(sentence, min_confidence=0.9):
+    if not robert_tokenizer or not robert_model:
+        return sentence
+    tokens = sentence.split()
+    corrected = []
+    for i in range(len(tokens)):
+        suggestion, confidence = suggest_word_robert(sentence, i, min_confidence)
+        # Only replace if suggestion is different, not a special token, and confidence is high
+        if (
+            suggestion
+            and suggestion != tokens[i]
+            and suggestion not in [
+                robert_tokenizer.mask_token,
+                robert_tokenizer.pad_token,
+                robert_tokenizer.cls_token,
+                robert_tokenizer.sep_token,
+            ]
+            and confidence >= min_confidence
+        ):
+            corrected.append(suggestion)
+        else:
+            corrected.append(tokens[i])
+    return " ".join(corrected)
 
 EMOJI = r':([^\s:]+):'
 WORD = r'\p{L}+'
@@ -211,7 +266,9 @@ async def run(video_id:str, speed:float, workers:int, model:str, fs2:Path|None):
         async for arr, ln in sampler(video_id, wps):
             if stop_flag.is_set(): break
             i=next(idx); wav=str(TMP_DIR/f"{i}.wav")
-            diacritized_text = restore_diacritics(clean(ln.txt))
+            cleaned = clean(ln.txt)
+            corrected = autocorrect_robert(cleaned)  # uses default min_confidence=0.8
+            diacritized_text = restore_diacritics(corrected)
             fut = loop.run_in_executor(pool, synth.to_file,
                                        f"{ln.auth} spune {diacritized_text}", wav, speed)
             await q.put((i,arr,ln,fut))
