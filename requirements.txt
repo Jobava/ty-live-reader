@@ -1,0 +1,13 @@
+pytchat
+pyttsx3
+TTS
+transformers
+sentencepiece
+accelerate
+torch==2.1.2
+torchaudio==2.1.2
+torchtext==0.16.2
+regex
+silero-tts
+onnxruntime
+ro-diacritics
